@@ -9,7 +9,7 @@ public class Tree implements Comparable<TreeToy>{
         toys.add(toy);
     }
 
-    public int countRedToys(ArrayList<TreeToy> toys) {
+    public int countRedToys(List<TreeToy> toys) {
         int count = 0;
         for (TreeToy toy : toys) {
             if (toy.getColor() == "red") {

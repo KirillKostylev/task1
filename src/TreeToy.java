@@ -1,4 +1,4 @@
-public class TreeToy {
+public class TreeToy  {
     private String color;
     private String shape;
 
