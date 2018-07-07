@@ -2,10 +2,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Tree implements Comparable<TreeToy>{
+public class Tree {
     private List<TreeToy> toys = new ArrayList<>();
 
-    public void putToyOnTree(TreeToy toy) {
+    public void putToyOnTree(TreeToy toy)
+    {
         toys.add(toy);
     }
 
@@ -23,12 +24,4 @@ public class Tree implements Comparable<TreeToy>{
         return toys;
     }
 
-    private void sortToys(List<TreeToy> toys) {
-        Collections.sort(toys);
-    }
-
-    @Override
-    public int compareTo(TreeToy o) {
-        return 0;
-    }
 }

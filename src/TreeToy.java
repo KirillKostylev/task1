@@ -1,10 +1,17 @@
-public class TreeToy  {
-    private String color;
-    private String shape;
+import java.util.*;
 
-    public TreeToy(String color, String shape) {
+public class TreeToy {
+    private String color;
+    private int size;
+
+    public TreeToy(String color, int size) {
         this.color = color;
-        this.shape = shape;
+        this.size = size;
+        System.out.println(toString());
+    }
+
+    public static void sortToys(List<TreeToy> toys) {
+        Collections.sort(toys, new ColorComparator());
     }
 
     public String getColor() {
@@ -13,9 +20,25 @@ public class TreeToy  {
 
     @Override
     public String toString() {
-        return "TreeToy{" +
+        return "ChristmasTreeToy{" +
                 "color='" + color + '\'' +
-                ", shape='" + shape + '\'' +
+                ", size='" + size + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TreeToy treeToy = (TreeToy) o;
+        return size == treeToy.size &&
+                Objects.equals(color, treeToy.color);
+    }
+
+    public static class ColorComparator implements Comparator<TreeToy> {
+        @Override
+        public int compare(TreeToy o1, TreeToy o2) {
+            return o1.getColor().compareTo(o2.getColor());
+        }
     }
 }
