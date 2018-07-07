@@ -11,11 +11,20 @@ public class TreeToy {
     }
 
     public static void sortToys(List<TreeToy> toys) {
-        Collections.sort(toys, new ColorComparator());
+        toys.sort(new Comparator<TreeToy>() {
+            @Override
+            public int compare(TreeToy o1, TreeToy o2) {
+                return o1.getColor().compareTo(o2.getColor());
+            }
+        });
     }
 
     public String getColor() {
         return color;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     @Override
@@ -33,12 +42,5 @@ public class TreeToy {
         TreeToy treeToy = (TreeToy) o;
         return size == treeToy.size &&
                 Objects.equals(color, treeToy.color);
-    }
-
-    public static class ColorComparator implements Comparator<TreeToy> {
-        @Override
-        public int compare(TreeToy o1, TreeToy o2) {
-            return o1.getColor().compareTo(o2.getColor());
-        }
     }
 }
